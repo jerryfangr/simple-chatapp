@@ -1,0 +1,114 @@
+/* theme color */
+$tip-color-primary: #007aff;
+$tip-color-success: #4cd964;
+$tip-color-warning: #f0ad4e;
+$tip-color-error: #dd524d;
+
+
+/* layout */
+/* horizontal or vertical or both center width flex */
+@mixin flex-layout($justify-content: center, $align-items: center, $flex-direction: row) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+}
+@mixin flex-center($flex-direction: row) {
+  @include flex-layout(center, center, $flex-direction);
+}
+@mixin flex-left($flex-direction: row) {
+  @include flex-layout(flex-start, center, $flex-direction);
+}
+@mixin flex-right($flex-direction: row) {
+  @include flex-layout(flex-end, center, $flex-direction);
+}
+@mixin flex-top($flex-direction: row) {
+  @include flex-layout(center, flex-start, $flex-direction);
+}
+@mixin flex-bottom($flex-direction: row) {
+  @include flex-layout(center, flex-end, $flex-direction);
+}
+
+/* horizontal or vertical or both center width position: absolute; */
+@mixin abs-layout($left: default, $top: default, $right: default, $bottom: default) {
+  position: absolute;
+  margin: auto;
+
+  @if $left != default {
+    left: $left;
+  }
+  @if $top != default {
+    top: $top;
+  }
+  @if $right != default {
+    right: $right;
+  }
+  @if $bottom != default {
+    bottom: $bottom;
+  }
+}
+@mixin abs-center() {
+  @include abs-layout(0, 0, 0, 0);
+}
+@mixin abs-left($distance: 0) {
+  @include abs-layout($distance, 0, default, 0);
+}
+@mixin abs-right($distance: 0) {
+  @include abs-layout(default, 0, $distance, 0);
+}
+@mixin abs-top($distance: 0) {
+  @include abs-layout(0, $distance, 0);
+}
+@mixin abs-bottom($distance: 0) {
+  @include abs-layout(0, default, 0, $distance);
+}
+
+/* clear float */
+@mixin clearFix() {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  clear: both;
+}
+
+@mixin limit-size($min-width: auto, $max-width: auto, $min-height: auto, $max-height: auto) {
+  min-width: $min-width;
+  max-width: $max-width;
+  min-height: $min-height;
+  max-height: $max-height;
+}
+
+@mixin scroll-bar() {
+  // base
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // chrome
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    background-color: #86b6f9;
+  }
+
+  &::-webkit-scrollbar-track {
+    -box-shadow: inset 0 0 6px #bbcff0;
+    border-radius: 10px;
+    background-color: #d3e1f7;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px #c0d2f0;
+    background-color: #86b6f9;
+  }
+
+  // firefox
+  scrollbar-color: transparent transparent;
+
+  // ie
+  scrollbar-arrow-color: inherit;
+  scrollbar-base-color: inherit;
+  scrollbar-track-color: inherit;
+  scrollbar-shadow-color: inherit;
+}
