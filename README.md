@@ -5,7 +5,10 @@
 # Preview
 
 ## imgtu.com CDN
+
+```html
 <img src="https://z3.ax1x.com/2021/04/23/cXRxIA.gif">
+```
 
 
 
