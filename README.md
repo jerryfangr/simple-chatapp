@@ -5,7 +5,9 @@
 # Preview
 
 ## imgtu.com CDN
-![preview](https://z3.ax1x.com/2021/04/23/cXRxIA.gif)
+```html
+https://z3.ax1x.com/2021/04/23/cXRxIA.gif
+```
 
 
 ## Github[./preview]
